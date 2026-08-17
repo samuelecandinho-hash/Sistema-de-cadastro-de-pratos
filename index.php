@@ -1,6 +1,6 @@
 <?php
 
-include("infra\db/connect.php");
+include("infra/db/connect.php");
 
 ?>
 
