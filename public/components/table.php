@@ -19,20 +19,18 @@
 
     $resultadoTodosPratos = $conn->query($sqlTodosPratos);
 
-    while($linha = $resultadoTodosPratos->fetch_assoc()){
-
-        echo "  <tr>
+    while($linha = $resultadoTodosPratos->fetch_assoc()){ ?>
+                <tr>
                     <td>". $linha['id_pratos'] . "</td>
                     <td>". $linha['nome_pratos'] . "</td>
                     <td>". $linha['descricao_pratos'] . "</td>
                     <td>". $linha['preco_pratos'] . "</td>
                     <td>". $linha['categoria_pratos'] . "</td>
                     <td>". $linha['nome_users'] . "</td>
-                    <td> <a href='excluir.php?id=". $linha['id_pratos'] ."'> Excluir</a></td>
-                    <td> <a href='editar.php?id=". $linha['id_pratos'] ."'> Editar</a></td>
+                    <td> <a href='excluir.php?id="<?php echo $linha['id_pratos'] ?> ."'> Excluir</a></td>
+                    <td> <a href='editar.php?id=". $linha['id_pratos] . > Editar</a></td>
                 </tr>
-        ";
-    }
+                <?php } ?>
     
     ?>
 

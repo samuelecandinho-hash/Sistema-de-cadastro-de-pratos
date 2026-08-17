@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 include("../infra/db/connect.php");
 
 $id = $_GET['id'];
