@@ -1,45 +1,45 @@
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $nome_prato = $_POST["nome_pratos"];
-$descricao = $_POST["descricao_pratos"];
-$preco = $_POST["preco_pratos"];
-$categoria = $_POST["categoria_pratos"];
-$nome_usuario = $_POST["nome_users"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $sql = "INSERT INTO pratos (nome_pratos, descricao_pratos, preco_pratos, categoria_pratos, nome_users) VALUES (?, ?, ?, ?, ?)";
+    $nome_prato = $_POST["nome_pratos"];
+    $descricao = $_POST["descricao_pratos"];
+    $preco = $_POST["preco_pratos"];
+    $categoria = $_POST["categoria_pratos"];
+    $nome_usuario = $_POST["nome_users"];
 
-  if ($stmt = $conn->prepare($sql)) {
+    $sql = "INSERT INTO pratos (nome_pratos, descricao_pratos, preco_pratos, categoria_pratos, nome_users) VALUES (?, ?, ?, ?, ?)";
 
-    $stmt->bind_param(
-        "ssdss",
-        $nome_prato,
-        $descricao,
-        $preco,
-        $categoria,
-        $nome_usuario
-    );
+    if ($stmt = $conn->prepare($sql)) {
 
-    if (!$stmt->execute()) {
-        die("Erro ao inserir prato: " . $stmt->error);
+        $stmt->bind_param(
+            "ssdss",
+            $nome_prato,
+            $descricao,
+            $preco,
+            $categoria,
+            $nome_usuario
+        );
+
+        if (!$stmt->execute()) {
+            die("Erro ao inserir prato: " . $stmt->error);
+        }
+
+        $stmt->close();
+    } else {
+        die("Erro ao preparar SQL: " . $conn->error);
     }
-
-    $stmt->close();
-
-} else {
-    die("Erro ao preparar SQL: " . $conn->error);
-}
-
-
 };
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
+
 <body>
-  
+
 
     <h4>Cadastro de Novo Prato.</h4>
     <form method="POST">
@@ -58,15 +58,16 @@ $nome_usuario = $_POST["nome_users"];
         <label for="nome_usuario"> Nome do Usuário:</label>
         <input type="text" name="nome_users" required>
         <?php
-        
-            if(isset($erro)){
-                echo $erro;
-            };
-        
+
+        if (isset($erro)) {
+            echo $erro;
+        };
+
         ?>
         <br>
         <button type="submit">Cadastrar</button>
     </form>
     <hr>
 </body>
+
 </html>
