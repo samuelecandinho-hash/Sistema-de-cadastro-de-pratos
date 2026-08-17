@@ -1,13 +1,10 @@
 <?php
-session_start();
-
-include("../../infra/db/connect.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $novonome = $_POST['Nome'];
     $novoemail = $_POST['Email'];
 
-    $sql = "INSERT INTO users (nome,Email) VALUES ('$novonome','$novoemail')";  
+    $sql = "INSERT INTO users (nome_users,email_users) VALUES ('$novonome','$novoemail')";  
 
     if($conn->query($sql) === TRUE){
         echo "<script> alert('Usuário cadastrado com sucesso!')</script>";
