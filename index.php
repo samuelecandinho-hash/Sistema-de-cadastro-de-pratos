@@ -19,8 +19,8 @@ include("infra/db/connect.php");
         <label>Usuário:</label>
         <input type="text" name="usuario">
         <br>
-        <label>Senha:</label>
-        <input type="password" name="senha">
+        <label for="Email"> E-mail:</label>
+        <input type="email" name="Email">
         <br>
         <?php
         
@@ -35,7 +35,7 @@ include("infra/db/connect.php");
     <hr>
     <?php
     
-    include("components/table.php")
+    include("public/components/table.php")
 
     ?>
 </body>
