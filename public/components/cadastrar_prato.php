@@ -25,21 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $stmt->close();
+         header("Location: index.php");
+    exit;
     } else {
         die("Erro ao preparar SQL: " . $conn->error);
     }
-<<<<<<< HEAD
-
-    $stmt->close();
-  header("Location: index.php");
-    exit;
-} else {
-    die("Erro ao preparar SQL: " . $conn->error);
-}
-
-
-=======
->>>>>>> d038c912376d6ac3c51a34a710cf64c85c5ab9a3
 };
 ?>
 <html lang="en">
@@ -69,16 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <label for="nome_usuario"> Nome do Usuário:</label>
         <input type="text" name="nome_users" required>
-<<<<<<< HEAD
-=======
-        <?php
-
-        if (isset($erro)) {
-            echo $erro;
-        };
-
-        ?>
->>>>>>> d038c912376d6ac3c51a34a710cf64c85c5ab9a3
         <br>
         <button type="submit">Cadastrar</button>
     </form>
