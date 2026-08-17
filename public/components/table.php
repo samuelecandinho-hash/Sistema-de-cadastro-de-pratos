@@ -25,16 +25,15 @@
     // o fetch assoc
 
         echo "  <tr>
-                    <td>". $linha['id'] . "</td>
-                    <td>". $linha['nome'] . "</td>
-                    <td>". $linha['descrição'] . "</td>
-                    <td>". $linha['preco'] . "</td>
-                    <td>". $linha['categoria'] . "</td>
-                    <td>". $linha['id_usuario'] . "</td>
-                    <td>". $linha['nome_usuario'] . "</td>
-                    <td> <a href='excluir.php?id=". $linha['id'] ."'> Excluir</td>
-
-                    <td> <a href='editar.php?id=". $linha['id'] ."'> Editar</td>
+                    <td>". $linha['id_pratos'] . "</td>
+                    <td>". $linha['nome_pratos'] . "</td>
+                    <td>". $linha['descricao_pratos'] . "</td>
+                    <td>". $linha['preco_pratos'] . "</td>
+                    <td>". $linha['categoria_pratos'] . "</td>
+                    <td>". $linha['id_users'] . "</td>
+                    <td>". $linha['nome_users'] . "</td>
+                    <td> <a href='excluir.php?id=". $linha['id_pratos'] ."'> Excluir</td>
+                    <td> <a href='editar.php?id=". $linha['id_pratos'] ."'> Editar</td>
                 </tr>
         ";
 
