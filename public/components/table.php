@@ -1,4 +1,4 @@
-<h4>Usuários Cadastrados</h4>
+<h4>Pratos Cadastrados</h4>
 
 <table border="1" cellpadding="3">
 
@@ -30,13 +30,11 @@
                     <td>". $linha['descricao_pratos'] . "</td>
                     <td>". $linha['preco_pratos'] . "</td>
                     <td>". $linha['categoria_pratos'] . "</td>
-                    <td>". $linha['id_users'] . "</td>
                     <td>". $linha['nome_users'] . "</td>
                     <td> <a href='excluir.php?id=". $linha['id_pratos'] ."'> Excluir</td>
                     <td> <a href='editar.php?id=". $linha['id_pratos'] ."'> Editar</td>
                 </tr>
         ";
-
     }
     
     ?>
