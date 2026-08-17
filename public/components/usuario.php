@@ -1,16 +1,29 @@
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $novonome = $_POST['Nome'];
-    $novoemail = $_POST['Email'];
+    $nome = $_POST['Nome'];
+    $email = $_POST['Email'];
 
-    $sql = "INSERT INTO users (nome_users,email_users) VALUES ('$novonome','$novoemail')";  
+    $sql = "INSERT INTO users (nome_users,email_users) VALUES (?,?)";
 
-    if($conn->query($sql) === TRUE){
-        echo "<script> alert('Usuário cadastrado com sucesso!')</script>";
-    }else{
-        echo "<script> alert('Erro ao cadastrar')</script>";
+    if ($stmt = $conn->prepare($sql)) {
+
+    $stmt->bind_param(
+        "ss",
+        $nome,
+        $email
+    );
+
+    if (!$stmt->execute()) {
+        die("Erro ao inserir prato: " . $stmt->error);
     }
+
+    $stmt->close();
+ header("Location: index.php");
+    exit;
+} else {
+    die("Erro ao preparar SQL: " . $conn->error);
+}
 
 };
 ?>

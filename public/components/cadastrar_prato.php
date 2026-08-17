@@ -24,7 +24,8 @@ $nome_usuario = $_POST["nome_users"];
     }
 
     $stmt->close();
-
+  header("Location: index.php");
+    exit;
 } else {
     die("Erro ao preparar SQL: " . $conn->error);
 }
@@ -57,13 +58,6 @@ $nome_usuario = $_POST["nome_users"];
         <br>
         <label for="nome_usuario"> Nome do Usuário:</label>
         <input type="text" name="nome_users" required>
-        <?php
-        
-            if(isset($erro)){
-                echo $erro;
-            };
-        
-        ?>
         <br>
         <button type="submit">Cadastrar</button>
     </form>
