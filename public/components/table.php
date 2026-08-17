@@ -16,7 +16,7 @@
 
     <?php
     
-    $sqlTodosUsuarios = "SELECT * FROM usuarios";
+    $sqlTodosUsuarios = "SELECT * FROM pratos";
 
     $resultadoTodosUsuarios = $conn->query($sqlTodosUsuarios);
 
