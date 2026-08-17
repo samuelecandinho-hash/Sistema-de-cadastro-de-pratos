@@ -14,6 +14,7 @@ include("infra/db/connect.php");
 <body>
   <?php
 include("public/components/usuario.php");
+include("public/components/cadastrar_prato.php");
 ?>
     <h4>Pratos Cadastrados</h4>
 
