@@ -22,8 +22,6 @@
 
     while($linha = $resultadoTodosUsuarios->fetch_assoc()){
 
-    // o fetch assoc
-
         echo "  <tr>
                     <td>". $linha['id_pratos'] . "</td>
                     <td>". $linha['nome_pratos'] . "</td>
