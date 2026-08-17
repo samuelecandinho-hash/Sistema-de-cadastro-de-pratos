@@ -1,59 +1,55 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $nome = $_POST['Nome'];
-    $email = $_POST['Email'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $sql = "INSERT INTO users (nome_users,email_users) VALUES (?,?)";
+    $nome = trim($_POST['Nome'] ?? '');
+    $email = trim($_POST['Email'] ?? '');
 
-    if ($stmt = $conn->prepare($sql)) {
+    if ($nome === '' || $email === '') {
+        die("Nome e e-mail são obrigatórios.");
+    }
 
-    $stmt->bind_param(
-        "ss",
-        $nome,
-        $email
-    );
+    $sql = "INSERT INTO users (nome_users, email_users) VALUES (?, ?)";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        die("Erro ao preparar SQL: " . $conn->error);
+    }
+
+    $stmt->bind_param("ss", $nome, $email);
 
     if (!$stmt->execute()) {
-        die("Erro ao inserir prato: " . $stmt->error);
+        die("Erro ao inserir usuário: " . $stmt->error);
     }
 
     $stmt->close();
- header("Location: index.php");
-    exit;
-} else {
-    die("Erro ao preparar SQL: " . $conn->error);
-}
 
-};
+    header("Location: index.php");
+    exit;
+}
 ?>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h3>Bem-Vindo!</h3>
-    <hr>
-    <h4>Cadastro de Novo Usuário.</h4>
-    <form method="POST">
-        <label> Nome: </label>
-        <input type="text" name="Nome" required>
-        <br>
-        <label for="Email"> E-mail:</label>
-        <input type="email" name="Email" required>
-        <?php
-        
-            if(isset($erro)){
-                echo $erro;
-            };
-        
-        ?>
-        <br>
-        <button type="submit">Cadastrar</button>
-    </form>
-    <hr>
-</body>
-</html>
+<h3>Bem-Vindo!</h3>
+
+<hr>
+
+<h4>Cadastro de Novo Usuário.</h4>
+
+<form method="POST" action="index.php">
+
+    <label for="Nome">Nome:</label>
+    <input type="text" id="Nome" name="Nome" required>
+
+    <br>
+
+    <label for="Email">E-mail:</label>
+    <input type="email" id="Email" name="Email" required>
+
+    <br>
+
+    <button type="submit">Cadastrar</button>
+
+</form>
+
+<hr>
