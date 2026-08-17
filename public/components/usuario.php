@@ -1,8 +1,21 @@
 <?php
 session_start();
 
-include("infra/db/connect.php");
+include("../../infra/db/connect.php");
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $novonome = $_POST['Nome'];
+    $novoemail = $_POST['Email'];
+
+    $sql = "INSERT INTO users (nome,Email) VALUES ('$novonome','$novoemail')";  
+
+    if($conn->query($sql) === TRUE){
+        echo "<script> alert('Usuário cadastrado com sucesso!')</script>";
+    }else{
+        echo "<script> alert('Erro ao cadastrar')</script>";
+    }
+
+};
 ?>
 
 <html lang="en">
@@ -15,24 +28,12 @@ include("infra/db/connect.php");
     <h3>Bem-Vindo!</h3>
     <hr>
     <h4>Cadastro de Novo Usuário.</h4>
-    <a href="public/components/usuario.php">Cadastrar Novo Usuário</a>
-    <br>
     <form method="POST">
         <label> Nome: </label>
-        <input type="text" name="usuario">
+        <input type="text" name="Nome" required>
         <br>
         <label for="Email"> E-mail:</label>
-        <input type="email" name="Email">
-        <br>
-        <label>preço:</label>
-        <input type="text" name="preco">
-        <br>
-        <label>categoria:</label>
-        <input type="text" name="categoria">
-        <br>
-        <label>nome do usuario:</label>
-        <input type="text" name="nome_usuario">
-        <br>
+        <input type="email" name="Email" required>
         <?php
         
             if(isset($erro)){
@@ -44,10 +45,5 @@ include("infra/db/connect.php");
         <button type="submit">Cadastrar</button>
     </form>
     <hr>
-    <?php
-    
-    include("public/components/table.php")
-
-    ?>
 </body>
 </html>
