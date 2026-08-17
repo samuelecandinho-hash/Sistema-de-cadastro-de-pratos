@@ -1,6 +1,6 @@
 <?php
 
-include("infra/connect.php");
+include("infra\db/connect.php");
 
 ?>
 
@@ -16,7 +16,10 @@ include("infra/connect.php");
         <form action="POST">
             <h2> Cadastro de pessoas </h2>
             <label for="Nome"> Nome do arrombado: </label>
-            <input type="text" name="Nome">
+            <input type="text" name="Nome"> <br>
+            <label for="Email"> E-mail vagabundo: </label>
+            <input type="email" name="Email"> <br>
+            <button type="submit"> Botão que explode a lua </button>
         </form>
     </header>
     <main>
