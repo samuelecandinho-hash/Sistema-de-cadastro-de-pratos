@@ -44,7 +44,7 @@ include("infra/db/connect.php");
     <hr>
     <?php
     
-    include("components/table.php")
+    include("public/components/table.php")
 
     ?>
 </body>

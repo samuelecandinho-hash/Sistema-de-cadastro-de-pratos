@@ -44,5 +44,5 @@
 
     
 
-<script src="../scripts/confirm.js"></script>
+<script src="../scripts/.js"></script>
 </table>
