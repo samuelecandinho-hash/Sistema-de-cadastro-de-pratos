@@ -8,7 +8,6 @@
         <th>descrição</th>
         <th>preço</th>
         <th>categoria</th>
-        <th>ID do usuario</th>
         <th>nome do usuario</th>
         <th id="BotaoExcluir">Excluir</th>
         <th>Editar</th>
@@ -16,13 +15,11 @@
 
     <?php
     
-    $sqlTodosUsuarios = "SELECT * FROM pratos";
+    $sqlTodosPratos = "SELECT * FROM pratos";
 
-    $resultadoTodosUsuarios = $conn->query($sqlTodosUsuarios);
+    $resultadoTodosPratos = $conn->query($sqlTodosPratos);
 
-    while($linha = $resultadoTodosUsuarios->fetch_assoc()){
-
-    // o fetch assoc
+    while($linha = $resultadoTodosPratos->fetch_assoc()){
 
         echo "  <tr>
                     <td>". $linha['id_pratos'] . "</td>
@@ -31,8 +28,8 @@
                     <td>". $linha['preco_pratos'] . "</td>
                     <td>". $linha['categoria_pratos'] . "</td>
                     <td>". $linha['nome_users'] . "</td>
-                    <td> <a href='excluir.php?id=". $linha['id_pratos'] ."'> Excluir</td>
-                    <td> <a href='editar.php?id=". $linha['id_pratos'] ."'> Editar</td>
+                    <td> <a href='excluir.php?id=". $linha['id_pratos'] ."'> Excluir</a></td>
+                    <td> <a href='editar.php?id=". $linha['id_pratos'] ."'> Editar</a></td>
                 </tr>
         ";
     }
@@ -41,5 +38,4 @@
 
     
 
-<script src="../scripts/.js"></script>
 </table>
