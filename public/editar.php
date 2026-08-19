@@ -27,14 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $preco = $_POST["preco_pratos"];
     $categoria = $_POST["categoria_pratos"];
 
-    $sqlUpdate = "
-        UPDATE pratos 
-        SET nome_pratos = ?,
-            descricao_pratos = ?,
-            preco_pratos = ?,
-            categoria_pratos = ?
-        WHERE id_pratos = ?
-    ";
+    $sqlUpdate = "UPDATE pratos SET nome_pratos = ?,descricao_pratos = ?,preco_pratos = ?,categoria_pratos = ? WHERE id_pratos = ?";
 
     $stmtUpdate = $conn->prepare($sqlUpdate);
     $stmtUpdate->bind_param(
