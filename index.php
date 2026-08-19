@@ -17,5 +17,6 @@ include("infra/db/connect.php");
     include("public/components/sort_by.php");
     include("public/components/table.php");
     ?>
+    <img src="Assets/profissao-de-chef-cartoon.webp" alt="Chef" class="chef">
 </body>
 </html>
