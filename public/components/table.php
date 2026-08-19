@@ -19,7 +19,11 @@
 
     if ($_SERVER["REQUEST_METHOD"] === "POST")
     { 
+        $nullRemover = $_POST["nameSort"];
+        if ($nullRemover != "Selecione")
+        {
         $nameSort = "id_users = " . $_POST["nameSort"];
+        }
     }
 
     $sqlTodosPratos = "SELECT * FROM pratos WHERE $nameSort";
