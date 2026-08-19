@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(211, 178, 243);
+}
+h1{
+    background-image: linear-gradient(to right, rgb(255, 0, 0),rgb(255, 251, 0),rgb(9, 255, 0),rgb(0, 26, 255));
+    width: 500px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
