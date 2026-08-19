@@ -12,9 +12,7 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 $prato = $resultado->fetch_assoc();
 
-if (!$prato) {
-    die("Prato não encontrado.");
-}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -52,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Prato</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -61,24 +60,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST">
 
         <label>Nome do prato:</label>
-        <input type="text" name="nome_pratos" value="<?php echo htmlspecialchars($prato['nome_pratos']); ?>"required>
+        <input type="text" name="nome_pratos" required>
 
         <br><br>
 
         <label>Descrição:</label>
         <input 
-            type="text" name="descricao_pratos" value="<?php echo htmlspecialchars($prato['descricao_pratos']); ?>"required
-        >
+            type="text" name="descricao_pratos" required>
 
         <br><br>
 
         <label>Preço:</label>
-        <input type="number" name="preco_pratos" value="<?php echo htmlspecialchars($prato['preco_pratos']); ?>"required>
+        <input type="text" name="preco_pratos" required>
 
         <br><br>
 
         <label>Categoria:</label>
-        <input type="text" name="categoria_pratos" value="<?php echo htmlspecialchars($prato['categoria_pratos']); ?>"required>
+        <input type="text" name="categoria_pratos" required>
 
         <br>
 
