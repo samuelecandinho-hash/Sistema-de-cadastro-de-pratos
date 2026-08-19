@@ -4,12 +4,12 @@ session_start();
 
 include("../infra/db/connect.php");
 
-$sql = "SELECT * FROM usuarios WHERE id = $id";
+$sql = "SELECT * FROM pratos WHERE id_pratos = $id";
 $resultado = $conn -> query($sql);
-$usuario = $resultado -> fetch_assoc();
+$Pratos = $resultado -> fetch_assoc();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $novoUsuario = $_POST["usuario"];
+    $novoUsuario = $_POST["prato"];
     $novaSenha = $_POST["senha"];
 
     $sqlUpdate = " UPDATE usuarios SET usuario = '$novoUsuario', senha = '$novaSenha' WHERE id = $id";

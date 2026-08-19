@@ -1,6 +1,9 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if (
+    $_SERVER["REQUEST_METHOD"] === "POST" &&
+    ($_POST["formulario"] ?? "") === "usuario"
+) {
 
     $nome = trim($_POST['Nome'] ?? '');
     $email = trim($_POST['Email'] ?? '');
@@ -38,6 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <form method="POST" action="index.php">
 
+    <input type="hidden" name="formulario" value="usuario">
+
     <label for="Nome">Nome:</label>
     <input type="text" id="Nome" name="Nome" required>
 
@@ -48,8 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <br>
 
-    <button type="submit">Cadastrar</button>
+    <button type="submit">Cadastrar Usuário</button>
 
 </form>
+
 
 <hr>
