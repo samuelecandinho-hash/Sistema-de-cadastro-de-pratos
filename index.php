@@ -13,6 +13,7 @@ include("infra/db/connect.php");
     <?php
     include("public/components/usuario.php");
     include("public/components/cadastrar_prato.php");
+    include("public/components/sort_by.php");
     include("public/components/table.php");
     ?>
 </body>
