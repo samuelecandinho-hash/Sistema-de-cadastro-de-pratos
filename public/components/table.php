@@ -8,7 +8,7 @@
         <th>descrição</th>
         <th>preço</th>
         <th>categoria</th>
-        <th>nome do usuario</th>
+        <th>ID do usuario</th>
         <th id="BotaoExcluir">Excluir</th>
         <th>Editar</th>
     </tr>
@@ -33,7 +33,7 @@
                     <td>". $linha['descricao_pratos'] . "</td>
                     <td>". $linha['preco_pratos'] . "</td>
                     <td>". $linha['categoria_pratos'] . "</td>
-                    <td>". $linha['nome_users'] . "</td>
+                    <td>". $linha['id_users'] . "</td>
                     <td> <a href='public/excluir.php?id=". $linha['id_pratos'] ."'> Excluir</a></td>
                     <td> <a href='public/editar.php?id=". $linha['id_pratos'] ."'> Editar</a></td>
                     </tr>";
