@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 include("../infra/db/connect.php");
 
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {

@@ -1,19 +1,11 @@
 <?php
 
-if (
-    $_SERVER["REQUEST_METHOD"] === "POST" &&
-    ($_POST["formulario"] ?? "") === "usuario"
-) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST ["formulario" ]) === "usuario") {
 
-    $nome = trim($_POST['Nome'] ?? '');
-    $email = trim($_POST['Email'] ?? '');
-
-    if ($nome === '' || $email === '') {
-        die("Nome e e-mail são obrigatórios.");
-    }
+    $nome = $_POST['Nome'];
+    $email = $_POST['Email'];
 
     $sql = "INSERT INTO users (nome_users, email_users) VALUES (?, ?)";
-
     $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
@@ -27,7 +19,6 @@ if (
     }
 
     $stmt->close();
-
     header("Location: index.php");
     exit;
 }

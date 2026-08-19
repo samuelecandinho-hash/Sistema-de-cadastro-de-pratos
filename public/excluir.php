@@ -1,5 +1,4 @@
 <?php
-
 include("../infra/db/connect.php");
 
 $id = $_GET['id'];
@@ -9,5 +8,4 @@ if($conn->query($sql) === TRUE){
     header("Location: ../index.php");
     exit();
 }
-
 ?>
