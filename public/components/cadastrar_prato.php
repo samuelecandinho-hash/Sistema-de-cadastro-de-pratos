@@ -54,6 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     <input type="text" id="categoria_pratos" name="categoria_pratos" required>
 
     <br>
+    <label for="User"> Id do usuário: </label>
+    <input type="text" id="User" name="User" required>
+
+    <br>
     <button type="submit">Cadastrar Prato</button>
 
 </form>

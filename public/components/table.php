@@ -19,7 +19,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] === "POST")
     {
-        $nameSort = $_POST["nameSort"];
+        $nameSort = "user_id = " . $_POST["nameSort"];
     }
 
     $sqlTodosPratos = "SELECT * FROM pratos WHERE $nameSort";
