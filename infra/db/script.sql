@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS pratos (
     descricao_pratos VARCHAR(100) NOT NULL,
     preco_pratos VARCHAR(100) NOT NULL,
     categoria_pratos VARCHAR(100) NOT NULL,
-    nome_users VARCHAR(50) NOT NULL
+    
 );
