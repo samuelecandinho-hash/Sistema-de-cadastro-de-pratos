@@ -15,7 +15,14 @@
 
     <?php
     
-    $sqlTodosPratos = "SELECT * FROM pratos";
+    $nameSort = 4;
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST")
+    {
+        $nameSort = $_POST["nameSort"];
+    }
+
+    $sqlTodosPratos = "SELECT * FROM pratos WHERE id_pratos = $nameSort";
 
     $resultadoTodosPratos = $conn->query($sqlTodosPratos);
 
