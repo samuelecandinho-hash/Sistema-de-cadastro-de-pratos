@@ -1,4 +1,6 @@
 <?php
+$sql = "SELECT * FROM users";
+$resultado = mysqli_query($conn, $sql);
 if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato") {
 
     $nome_prato =$_POST["nome_pratos"];
@@ -15,14 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
         die("Erro ao preparar SQL: " . $conn->error);
     }
 
-    $stmt->bind_param(
-        "ssdsi",
-        $nome_prato,
-        $descricao,
-        $preco,
-        $categoria,
-        $user_id,
-    );
+    $stmt->bind_param("ssdsi",$nome_prato,$descricao,$preco,$categoria,$user_id,);
 
     if (!$stmt->execute()) {
         die("Erro ao inserir prato: " . $stmt->error);
@@ -54,13 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     <br>
     <label for="categoria_pratos">Categoria:</label>
     <input type="text" id="categoria_pratos" name="categoria_pratos" required>
-
     <br>
-    <label for="User"> Id do usuário: </label>
-    <input type="text" id="User" name="User" required>
-
-    <br>
+    <label for="usuario">Usuário:</label>
+    <select name="usuario" id="">
+    <option value="" required>Selecione um Usuário</option>
+                <br>
     <button type="submit">Cadastrar Prato</button>
+<?php
+    while ($usuario = mysqli_fetch_assoc($resultado)) {echo "<option value='{$usuario['id_users']}'>{$usuario['nome_users']}</option>";
+    }
+?>
+
 
 </form>
 <hr>
