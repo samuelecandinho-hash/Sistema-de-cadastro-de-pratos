@@ -18,12 +18,8 @@
     $nameSort = "1 = 1";
 
     if ($_SERVER["REQUEST_METHOD"] === "POST")
-    {
-        $nullRemover = $_POST["nameSort"];
-        if ($nullRemover != null)
-        {
+    { 
         $nameSort = "id_users = " . $_POST["nameSort"];
-        }
     }
 
     $sqlTodosPratos = "SELECT * FROM pratos WHERE $nameSort";

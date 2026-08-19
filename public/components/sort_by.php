@@ -2,13 +2,13 @@
 <form method="POST" action="index.php">
     <h1> Procurar pratos de um usuário: </h1>
     <label for="nameSort"> Usuário: </label>
-    <select name="nameSort" id="123">
+    <select name="nameSort" id="nameSort">
         <option value = "Selecione"> Selecione </option>
         <?php 
-            $sqlUsuarios = "SELECT nome_users FROM users";
+            $sqlUsuarios = "SELECT * FROM users";
             $resultadoUsuarios = $conn->query($sqlUsuarios);
             while($linha = $resultadoUsuarios->fetch_assoc()){
-            echo   "<option value=" . $linha['nome_users'] . ">" . $linha['nome_users'] . "</option>";
+            echo   "<option value=" . $linha['id_users'] . ">" . $linha['nome_users'] . "</option>";
             }
             echo "</select>"
         ?>
