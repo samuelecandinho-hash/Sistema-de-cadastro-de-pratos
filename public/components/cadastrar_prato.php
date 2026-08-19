@@ -5,8 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     $descricao =$_POST["descricao_pratos"];
     $preco = $_POST["preco_pratos"];
     $categoria = $_POST["categoria_pratos"];
+    $user_id = $_POST["User"];
 
-    $sql = "INSERT INTO pratos (nome_pratos, descricao_pratos, preco_pratos, categoria_pratos) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO pratos (nome_pratos, descricao_pratos, preco_pratos, categoria_pratos, id_users) VALUES (?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
 
@@ -15,11 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     }
 
     $stmt->bind_param(
-        "ssds",
+        "ssdsi",
         $nome_prato,
         $descricao,
         $preco,
         $categoria,
+        $user_id,
     );
 
     if (!$stmt->execute()) {
