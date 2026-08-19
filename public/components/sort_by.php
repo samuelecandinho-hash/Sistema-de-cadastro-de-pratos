@@ -1,4 +1,4 @@
-<form method="POST" action="table.php">
+<form method="POST" action="index.php">
     <h1> Procurar pratos de um usuário: </h1>
     <label for="nameSort"> Usuário: </label>
     <input type="text" name="nameSort">
