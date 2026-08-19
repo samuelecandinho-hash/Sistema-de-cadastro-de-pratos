@@ -15,32 +15,29 @@
 
     <?php
     
-    $nameSort = 4;
+    $nameSort = "1 = 1";
 
     if ($_SERVER["REQUEST_METHOD"] === "POST")
     {
         $nameSort = $_POST["nameSort"];
     }
 
-    $sqlTodosPratos = "SELECT * FROM pratos WHERE id_pratos = $nameSort";
+    $sqlTodosPratos = "SELECT * FROM pratos WHERE $nameSort";
 
     $resultadoTodosPratos = $conn->query($sqlTodosPratos);
 
-    while($linha = $resultadoTodosPratos->fetch_assoc()){ ?>
-                <tr>
+    while($linha = $resultadoTodosPratos->fetch_assoc()){
+        echo        "<tr>
                     <td>". $linha['id_pratos'] . "</td>
                     <td>". $linha['nome_pratos'] . "</td>
                     <td>". $linha['descricao_pratos'] . "</td>
                     <td>". $linha['preco_pratos'] . "</td>
                     <td>". $linha['categoria_pratos'] . "</td>
                     <td>". $linha['nome_users'] . "</td>
-                    <td> <a href='excluir.php?id="<?php echo $linha['id_pratos'] ?> ."'> Excluir</a></td>
-                    <td> <a href='editar.php?id=". $linha['id_pratos] . > Editar</a></td>
-                </tr>
-                <?php } ?>
-    
+                    <td> <a href='public/excluir.php?id=". $linha['id_pratos'] ."'> Excluir</a></td>
+                    <td> <a href='public/editar.php?id=". $linha['id_pratos'] ."'> Editar</a></td>
+                    </tr>";
+
+    }
     ?>
-
-    
-
 </table>
