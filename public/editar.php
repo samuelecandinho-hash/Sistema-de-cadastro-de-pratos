@@ -2,10 +2,6 @@
 session_start();
 include("../infra/db/connect.php");
 
-if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-    die("ID do prato inválido.");
-}
-
 $id_pratos = $_GET["id"];
 
 $sql = "SELECT * FROM pratos WHERE id_pratos = ?";
@@ -26,8 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = $_POST["descricao_pratos"];
     $preco = $_POST["preco_pratos"];
     $categoria = $_POST["categoria_pratos"];
+    $id_users = $_POST["id_users"];
 
-    $sqlUpdate = "UPDATE pratos SET nome_pratos = ?,descricao_pratos = ?,preco_pratos = ?,categoria_pratos = ? WHERE id_pratos = ?";
+    $sqlUpdate = "UPDATE pratos SET nome_pratos = ?,descricao_pratos = ?,preco_pratos = ?,categoria_pratos = ?, id_users = ? WHERE id_pratos = ?";
 
     $stmtUpdate = $conn->prepare($sqlUpdate);
     $stmtUpdate->bind_param(

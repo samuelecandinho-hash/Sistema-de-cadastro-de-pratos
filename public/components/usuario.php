@@ -25,28 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST ["formulario" ]) === "usuar
 ?>
 
 <h3>Bem-Vindo!</h3>
-
 <hr>
-
 <h4>Cadastro de Novo Usuário.</h4>
-
 <form method="POST" action="index.php">
-
-    <input type="hidden" name="formulario" value="usuario">
-
+        <input type="hidden" name="formulario" value="usuario">
     <label for="Nome">Nome:</label>
-    <input type="text" id="Nome" name="Nome" required>
-
+        <input type="text" id="Nome" name="Nome" required>
     <br>
-
     <label for="Email">E-mail:</label>
-    <input type="email" id="Email" name="Email" required>
-
+        <input type="email" id="Email" name="Email" required>
     <br>
-
     <button type="submit">Cadastrar Usuário</button>
 
 </form>
-
 
 <hr>
