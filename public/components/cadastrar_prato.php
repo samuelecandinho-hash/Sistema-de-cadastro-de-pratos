@@ -53,12 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     <label for="usuario">Usuário:</label>
     <select name="usuario" id="">
     <option value="" required>Selecione um Usuário</option>
-                <br>
-    <button type="submit">Cadastrar Prato</button>
-<?php
+    <?php
     while ($usuario = mysqli_fetch_assoc($resultado)) {echo "<option value='{$usuario['id_users']}'>{$usuario['nome_users']}</option>";
     }
-?>
+    ?>
+    </select>
+                <br>
+    <button type="submit">Cadastrar Prato</button>
 
 
 </form>
