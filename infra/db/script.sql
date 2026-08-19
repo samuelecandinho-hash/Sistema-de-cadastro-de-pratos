@@ -13,4 +13,5 @@ CREATE TABLE IF NOT EXISTS pratos (
     preco_pratos VARCHAR(100) NOT NULL,
     categoria_pratos VARCHAR(100) NOT NULL,
     CONSTRAINT fk_pratos_users FOREIGN KEY (id_users) REFERENCES users(id_users)
+    
 );
