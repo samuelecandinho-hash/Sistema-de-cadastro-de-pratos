@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     $descricao =$_POST["descricao_pratos"];
     $preco = $_POST["preco_pratos"];
     $categoria = $_POST["categoria_pratos"];
-    $user_id = $_POST["User"];
+    $user_id = $_POST["id_users"];
 
     $sql = "INSERT INTO pratos (nome_pratos, descricao_pratos, preco_pratos, categoria_pratos, id_users) VALUES (?, ?, ?, ?, ?)";
 
@@ -50,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     <label for="categoria_pratos">Categoria:</label>
     <input type="text" id="categoria_pratos" name="categoria_pratos" required>
     <br>
-    <label for="usuario">Usuário:</label>
-    <select name="usuario" id="">
+    <label for="id_users">Usuário:</label>
+    <select name="id_users" id="">
     <option value="" required>Selecione um Usuário</option>
     <?php
     while ($usuario = mysqli_fetch_assoc($resultado)) {echo "<option value='{$usuario['id_users']}'>{$usuario['nome_users']}</option>";
