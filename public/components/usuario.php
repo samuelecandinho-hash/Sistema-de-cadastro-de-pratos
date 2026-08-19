@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST ["formulario" ]) === "usuario") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST ["usuario"])) {
 
     $nome = $_POST['Nome'];
     $email = $_POST['Email'];
@@ -28,14 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST ["formulario" ]) === "usuar
 <hr>
 <h4>Cadastro de Novo Usuário.</h4>
 <form method="POST" action="index.php">
-        <input type="hidden" name="formulario" value="usuario">
     <label for="Nome">Nome:</label>
         <input type="text" id="Nome" name="Nome" required>
     <br>
     <label for="Email">E-mail:</label>
         <input type="email" id="Email" name="Email" required>
     <br>
-    <button type="submit">Cadastrar Usuário</button>
+    <button type="submit" name="usuario">Cadastrar Usuário</button>
 
 </form>
 

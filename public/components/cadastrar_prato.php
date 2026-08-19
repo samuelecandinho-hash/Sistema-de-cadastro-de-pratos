@@ -1,7 +1,7 @@
 <?php
 $sql = "SELECT * FROM users";
 $resultado = mysqli_query($conn, $sql);
-if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["prato"])){
 
     $nome_prato =$_POST["nome_pratos"];
     $descricao =$_POST["descricao_pratos"];
@@ -33,8 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
 
 <form method="POST" action="index.php">
 
-    <input type="hidden" name="formulario" value="prato">
-
     <label for="nome_pratos">Nome:</label>
     <input type="text" id="nome_pratos" name="nome_pratos" required>
 
@@ -51,15 +49,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["formulario"]) === "prato")
     <input type="text" id="categoria_pratos" name="categoria_pratos" required>
     <br>
     <label for="id_users">Usuário:</label>
-    <select name="id_users" id="">
-    <option value="" required>Selecione um Usuário</option>
+    <select name="id_users" id="" required>
+    <option value="" >Selecione um Usuário</option>
     <?php
     while ($usuario = mysqli_fetch_assoc($resultado)) {echo "<option value='{$usuario['id_users']}'>{$usuario['nome_users']}</option>";
     }
     ?>
     </select>
                 <br>
-    <button type="submit">Cadastrar Prato</button>
+    <button type="submit" name="prato">Cadastrar Prato</button>
 
 
 </form>
